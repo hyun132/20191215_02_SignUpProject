@@ -41,6 +41,13 @@ class SignUpActivity : BaseActivity() {
         birthTimeTxt.setOnClickListener {
             val timePickerDialog = TimePickerDialog(mContext, TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
 
+                selectedBirthDay?.set(Calendar.HOUR_OF_DAY , hourOfDay)
+                selectedBirthDay?.set(Calendar.MINUTE,minute)
+
+//                캘린더에 저장된 값을 SimpleDateFormat
+                val sdf = SimpleDateFormat("a h:mm")
+                birthTimeTxt.text=sdf.format(selectedBirthDay?.time)
+
             },20,5,false)
             timePickerDialog.show()
         }
