@@ -36,7 +36,7 @@
                 android:layout_marginTop="10dp"/>
 
             <EditText
-                android:id="@+id/passwordInfoEdt"
+                android:id="@+id/pwEdt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="비밀번호를 입력하세요 (8글자 이상)"
@@ -44,7 +44,7 @@
                 android:layout_marginTop="10dp"/>
 
             <TextView
-                android:id="@+id/passwordInfoTv"
+                android:id="@+id/pwStatusTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
