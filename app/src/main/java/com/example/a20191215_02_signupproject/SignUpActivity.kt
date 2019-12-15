@@ -13,6 +13,9 @@ import kotlinx.android.synthetic.main.activity_sign_up.*
 import java.util.*
 
 class SignUpActivity : BaseActivity() {
+
+    var selectedBirthDay : Calendar? = null
+
     var lastBackPressed = 0L
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +46,21 @@ class SignUpActivity : BaseActivity() {
 
                 val seletedDateStr = "${year} / ${month} / ${dayOfMonth}"
                 birthDatTxt.text = seletedDateStr
+
+                selectedBirthDay?.let {
+
+                    Log.d("생년월일선택","이미 선택된 값이 새로 생김 - 다시 선택")
+                }.let {
+                    Log.d("생년월일선택","선택된 값이 새로 생김 - 처음 선택")
+                    selectedBirthDay = Calendar.getInstance()
+//                    이 함수가 실행된 날짜가 담김
+//                    이 담긴 날짜를 선택한 년/월/일 로 대입
+                }
+                selectedBirthDay?.set(Calendar.YEAR,year)
+                selectedBirthDay?.set(Calendar.MONTH,month)
+                selectedBirthDay?.set(Calendar.DAY_OF_MONTH,dayOfMonth)
+
+                selectedBirthDay?.set(year,month,dayOfMonth)
 
             },2019,Calendar.DECEMBER,15)
 //            자바에서는 월을 0~11월을 사용함. 생각하는것보다 1작은 숫자를 월로 넣어줘야함
