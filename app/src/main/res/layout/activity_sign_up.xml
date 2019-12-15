@@ -139,6 +139,19 @@
                 android:layout_marginTop="10dp"
                 android:entries="@array/jobs"
                 android:spinnerMode="dialog"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="좋아하는 술"
+                android:layout_marginTop="10dp"
+                />
+            <Spinner
+                android:id="@+id/drinkSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+
+                android:spinnerMode="dropdown"/>
             <Button
                 android:id="@+id/signUpBtn"
                 android:layout_width="match_parent"

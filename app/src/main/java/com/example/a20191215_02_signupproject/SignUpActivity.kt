@@ -9,11 +9,17 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
+import com.example.a20191215_02_signupproject.adapters.AlcoholAdapter
+import com.example.a20191215_02_signupproject.datas.Alcohol
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class SignUpActivity : BaseActivity() {
+
+    val alcoholList = ArrayList<Alcohol>()
+    var alcoholAdapter : AlcoholAdapter?=null
 
     var selectedBirthDay : Calendar? = null
 
@@ -21,6 +27,7 @@ class SignUpActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
+
 
         setupEvents()
         setValues()
@@ -121,6 +128,22 @@ class SignUpActivity : BaseActivity() {
 
     override fun setValues() {
 
+        addAlcohols()
+
+        alcoholAdapter = AlcoholAdapter(mContext,R.layout.alcohol_spinner_list_item,alcoholList)
+        drinkSpinner.adapter=alcoholAdapter
+    }
+
+    fun addAlcohols(){
+        alcoholList.add(Alcohol("소주","참이슬"))
+        alcoholList.add(Alcohol("소주","처음처럼"))
+        alcoholList.add(Alcohol("소주","한라산"))
+        alcoholList.add(Alcohol("소주","참이슬"))
+        alcoholList.add(Alcohol("소주","참이슬"))
+        alcoholList.add(Alcohol("국내맥주","카스"))
+        alcoholList.add(Alcohol("국내맥주","오비라거"))
+        alcoholList.add(Alcohol("해외맥주","호가든"))
+        alcoholList.add(Alcohol("해외맥주","칭따오"))
     }
 
 
